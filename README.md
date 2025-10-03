@@ -8,7 +8,7 @@
     <img alt="npm downloads" src="https://img.shields.io/npm/dw/@alijunior/nuvemfiscal-sdk-node.svg">
   </a>
   <img alt="license" src="https://img.shields.io/npm/l/@alijunior/nuvemfiscal-sdk-node.svg">
-  <img alt="node >= 18" src="https://img.shields.io/badge/node-%3E%3D18-blue">
+
 </p>
 
 SDK em **TypeScript/Node.js** para integração com a **API Nuvem Fiscal**, com tipos gerados a partir do OpenAPI e client HTTP enxuto (fetch/axios).
