@@ -1,4 +1,15 @@
-# @alijunior/nuvemfiscal-sdk-node
+<h1 align="center">@alijunior/nuvemfiscal-sdk-node</h1>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@alijunior/nuvemfiscal-sdk-node">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@alijunior/nuvemfiscal-sdk-node.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/@alijunior/nuvemfiscal-sdk-node">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@alijunior/nuvemfiscal-sdk-node.svg">
+  </a>
+  <img alt="license" src="https://img.shields.io/npm/l/@alijunior/nuvemfiscal-sdk-node.svg">
+  <img alt="node >= 18" src="https://img.shields.io/badge/node-%3E%3D18-blue">
+</p>
 
 SDK em **TypeScript/Node.js** para integração com a **API Nuvem Fiscal**, com tipos gerados a partir do OpenAPI e client HTTP enxuto (fetch/axios).
 
@@ -281,4 +292,4 @@ pnpm build
 
 ## Licença
 
-[ISC](./LICENSE)
+[MIT](./LICENSE)
