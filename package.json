@@ -1,0 +1,68 @@
+{
+  "name": "@alijunior/nuvemfiscal-sdk-node",
+  "version": "1.0.2",
+  "description": "SDK em Typescript para comunicação com a api Nuvem Fiscal",
+  "keywords": [
+    "nuvemfiscal",
+    "sdk",
+    "node",
+    "typescript",
+    "nfe",
+    "nfce",
+    "api"
+  ],
+  "homepage": "https://github.com/alijuniorbr/nuvemfiscal-sdk-node#readme",
+  "bugs": {
+    "url": "https://github.com/alijuniorbr/nuvemfiscal-sdk-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alijuniorbr/nuvemfiscal-sdk-node.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Junior Ali",
+    "email": "alijunior@gmail.com",
+    "url": "https://github.com/alijuniorbr"
+  },
+  "type": "commonjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup index.ts --format esm,cjs --dts --out-dir dist --clean",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm build",
+    "test": "dotenv -e .env -- tsx ./run/nuvem-fiscal-run-example.ts",
+    "tree": "tree -a -I 'node_modules|.git|dist|build|coverage|.turbo|.next|.cache' > content-tree.txt"
+  },
+  "dependencies": {
+    "axios": "^1.12.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "dotenv-cli": "^10.0.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

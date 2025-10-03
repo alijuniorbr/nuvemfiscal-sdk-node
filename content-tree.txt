@@ -1,0 +1,30 @@
+.
+├── .DS_Store
+├── .env
+├── .gitignore
+├── .npmrc
+├── index.ts
+├── LICENSE
+├── package.json
+├── pnpm-lock.yaml
+├── README.md
+├── run
+│   └── nuvem-fiscal-run-example.ts
+├── src
+│   ├── .DS_Store
+│   ├── adapters
+│   │   ├── axios-http-client.ts
+│   │   └── fetch-http-client.ts
+│   ├── api
+│   │   ├── nuvem-fiscal-client.ts
+│   │   ├── nuvem-fiscal-token-acquire.ts
+│   │   ├── nuvem-fiscal-token-browser.ts
+│   │   └── nuvem-fiscal-token-string.ts
+│   ├── openapi
+│   │   └── swagger.json
+│   └── types
+│       ├── nuvem-fiscal-api.httpclient.ts
+│       ├── nuvem-fiscal-api.models.ts
+│       └── nuvem-fiscal-api.types.ts
+├── content-tree.txt
+└── tsconfig.json
