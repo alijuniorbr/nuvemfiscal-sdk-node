@@ -15216,9 +15216,7 @@ export interface operations {
    */
   EmitirCte: {
     parameters: {
-      body: {
-        body: definitions["CtePedidoEmissao"];
-      };
+      body: definitions["CtePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -15306,9 +15304,7 @@ export interface operations {
    */
   EmitirCteSimp: {
     parameters: {
-      body: {
-        body: definitions["CteSimpPedidoEmissao"];
-      };
+      body: definitions["CteSimpPedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -15419,9 +15415,8 @@ export interface operations {
    */
   CriarCartaCorrecaoCte: {
     parameters: {
-      body: {
-        body: definitions["CtePedidoCartaCorrecao"];
-      };
+      body: definitions["CtePedidoCartaCorrecao"];
+
       path: {
         /** ID único do CT-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -15602,9 +15597,7 @@ export interface operations {
    */
   EmitirCteOs: {
     parameters: {
-      body: {
-        body: definitions["CteOsPedidoEmissao"];
-      };
+      body: definitions["CteOsPedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -15787,9 +15780,8 @@ export interface operations {
    */
   CriarCartaCorrecaoCteOs: {
     parameters: {
-      body: {
-        body: definitions["CteOsPedidoCartaCorrecao"];
-      };
+      body: definitions["CteOsPedidoCartaCorrecao"];
+
       path: {
         /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
         id: string;
@@ -15970,9 +15962,7 @@ export interface operations {
    */
   EmitirDce: {
     parameters: {
-      body: {
-        body: definitions["DcePedidoEmissao"];
-      };
+      body: definitions["DcePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -16308,9 +16298,7 @@ export interface operations {
    */
   GerarDistribuicaoNfe: {
     parameters: {
-      body: {
-        body: definitions["DistribuicaoNfePedido"];
-      };
+      body: definitions["DistribuicaoNfePedido"];
     };
     responses: {
       /** Successful response */
@@ -16670,9 +16658,7 @@ export interface operations {
   /** Cadastre uma nova empresa (emitente ou prestador) à sua conta. */
   CriarEmpresa: {
     parameters: {
-      body: {
-        body: definitions["Empresa"];
-      };
+      body: definitions["Empresa"];
     };
     responses: {
       /** Successful response */
@@ -16704,9 +16690,8 @@ export interface operations {
    */
   AtualizarEmpresa: {
     parameters: {
-      body: {
-        body: definitions["Empresa"];
-      };
+      body: definitions["Empresa"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -16760,9 +16745,8 @@ export interface operations {
    */
   CadastrarCertificadoEmpresa: {
     parameters: {
-      body: {
-        body: definitions["EmpresaPedidoCadastroCertificado"];
-      };
+      body: definitions["EmpresaPedidoCadastroCertificado"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -16838,9 +16822,8 @@ export interface operations {
   };
   AlterarConfigCte: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigCte"];
-      };
+      body: definitions["EmpresaConfigCte"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -16875,9 +16858,8 @@ export interface operations {
   };
   AlterarConfigCteOs: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigCteOs"];
-      };
+      body: definitions["EmpresaConfigCteOs"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -16912,9 +16894,8 @@ export interface operations {
   };
   AlterarConfigDce: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigDce"];
-      };
+      body: definitions["EmpresaConfigDce"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -16949,9 +16930,8 @@ export interface operations {
   };
   AlterarConfigDistribuicaoNfe: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigDistribuicaoNfe"];
-      };
+      body: definitions["EmpresaConfigDistribuicaoNfe"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17047,9 +17027,8 @@ export interface operations {
   };
   AlterarConfigMdfe: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigMdfe"];
-      };
+      body: definitions["EmpresaConfigMdfe"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17084,9 +17063,8 @@ export interface operations {
   };
   AlterarConfigNfce: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigNfce"];
-      };
+      body: definitions["EmpresaConfigNfce"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17121,9 +17099,8 @@ export interface operations {
   };
   AlterarConfigNfcom: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigNfcom"];
-      };
+      body: definitions["EmpresaConfigNfcom"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17158,9 +17135,8 @@ export interface operations {
   };
   AlterarConfigNfe: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigNfe"];
-      };
+      body: definitions["EmpresaConfigNfe"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17195,9 +17171,8 @@ export interface operations {
   };
   AlterarConfigNfse: {
     parameters: {
-      body: {
-        body: definitions["EmpresaConfigNfse"];
-      };
+      body: definitions["EmpresaConfigNfse"];
+
       path: {
         /**
          * CPF ou CNPJ da empresa.
@@ -17257,9 +17232,7 @@ export interface operations {
    */
   EmitirMdfe: {
     parameters: {
-      body: {
-        body: definitions["MdfePedidoEmissao"];
-      };
+      body: definitions["MdfePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -17348,9 +17321,7 @@ export interface operations {
    */
   EmitirLoteMdfe: {
     parameters: {
-      body: {
-        body: definitions["MdfePedidoEmissaoLote"];
-      };
+      body: definitions["MdfePedidoEmissaoLote"];
     };
     responses: {
       /** Successful response */
@@ -17522,9 +17493,8 @@ export interface operations {
    */
   EncerrarMdfe: {
     parameters: {
-      body: {
-        body: definitions["MdfePedidoEncerramento"];
-      };
+      body: definitions["MdfePedidoEncerramento"];
+
       path: {
         /** ID único do MDF-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -17572,9 +17542,8 @@ export interface operations {
    */
   IncluirCondutorMdfe: {
     parameters: {
-      body: {
-        body: definitions["MdfePedidoInclusaoCondutor"];
-      };
+      body: definitions["MdfePedidoInclusaoCondutor"];
+
       path: {
         /** ID único do MDF-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -17594,9 +17563,8 @@ export interface operations {
    */
   IncluirDfeMdfe: {
     parameters: {
-      body: {
-        body: definitions["MdfePedidoInclusaoDfe"];
-      };
+      body: definitions["MdfePedidoInclusaoDfe"];
+
       path: {
         /** ID único do MDF-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -17749,9 +17717,7 @@ export interface operations {
    */
   EmitirNfce: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -17830,9 +17796,7 @@ export interface operations {
    */
   InutilizarNumeracaoNfce: {
     parameters: {
-      body: {
-        body: definitions["DfePedidoInutilizacao"];
-      };
+      body: definitions["DfePedidoInutilizacao"];
     };
     responses: {
       /** Successful response */
@@ -17921,9 +17885,7 @@ export interface operations {
    */
   EmitirLoteNfce: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissaoLote"];
-      };
+      body: definitions["NfePedidoEmissaoLote"];
     };
     responses: {
       /** Successful response */
@@ -17960,9 +17922,8 @@ export interface operations {
    */
   BaixarPreviaPdfNfce: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
+
       query: {
         /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
         logotipo?: boolean;
@@ -18047,9 +18008,7 @@ export interface operations {
    */
   BaixarPreviaXmlNfce: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -18441,9 +18400,7 @@ export interface operations {
    */
   EmitirNfcom: {
     parameters: {
-      body: {
-        body: definitions["NfcomPedidoEmissao"];
-      };
+      body: definitions["NfcomPedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -18682,9 +18639,7 @@ export interface operations {
    */
   EmitirNfe: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -18807,9 +18762,7 @@ export interface operations {
    */
   InutilizarNumeracaoNfe: {
     parameters: {
-      body: {
-        body: definitions["DfePedidoInutilizacao"];
-      };
+      body: definitions["DfePedidoInutilizacao"];
     };
     responses: {
       /** Successful response */
@@ -18898,9 +18851,7 @@ export interface operations {
    */
   EmitirLoteNfe: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissaoLote"];
-      };
+      body: definitions["NfePedidoEmissaoLote"];
     };
     responses: {
       /** Successful response */
@@ -18937,9 +18888,8 @@ export interface operations {
    */
   BaixarPreviaPdfNfe: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
+
       query: {
         /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
         logotipo?: boolean;
@@ -18995,9 +18945,7 @@ export interface operations {
    */
   BaixarPreviaXmlNfe: {
     parameters: {
-      body: {
-        body: definitions["NfePedidoEmissao"];
-      };
+      body: definitions["NfePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -19376,9 +19324,7 @@ export interface operations {
    */
   EmitirNfse: {
     parameters: {
-      body: {
-        body: definitions["NfsePedidoEmissao"];
-      };
+      body: definitions["NfsePedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -19419,9 +19365,7 @@ export interface operations {
    */
   EmitirNfseDps: {
     parameters: {
-      body: {
-        body: definitions["NfseDpsPedidoEmissao"];
-      };
+      body: definitions["NfseDpsPedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -19437,9 +19381,7 @@ export interface operations {
    */
   EmitirLoteNfseDps: {
     parameters: {
-      body: {
-        body: definitions["NfseLoteDpsPedidoEmissao"];
-      };
+      body: definitions["NfseLoteDpsPedidoEmissao"];
     };
     responses: {
       /** Successful response */
@@ -19486,9 +19428,7 @@ export interface operations {
    */
   EmitirLoteNfse: {
     parameters: {
-      body: {
-        body: definitions["RpsPedidoEmissaoLote"];
-      };
+      body: definitions["RpsPedidoEmissaoLote"];
     };
     responses: {
       /** Successful response */
