@@ -15349,9 +15349,8 @@ export interface operations {
    */
   CancelarCte: {
     parameters: {
-      body: {
-        body?: definitions["CtePedidoCancelamento"];
-      };
+      body?: definitions["CtePedidoCancelamento"];
+
       path: {
         /** ID único do CT-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -15714,9 +15713,8 @@ export interface operations {
    */
   CancelarCteOs: {
     parameters: {
-      body: {
-        body?: definitions["CteOsPedidoCancelamento"];
-      };
+      body?: definitions["CteOsPedidoCancelamento"];
+
       path: {
         /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
         id: string;
@@ -16037,9 +16035,8 @@ export interface operations {
    */
   CancelarDce: {
     parameters: {
-      body: {
-        body?: definitions["DcePedidoCancelamento"];
-      };
+      body?: definitions["DcePedidoCancelamento"];
+
       path: {
         /** ID único da DC-e gerada pela Nuvem Fiscal. */
         id: string;
@@ -18083,9 +18080,8 @@ export interface operations {
    */
   CancelarNfce: {
     parameters: {
-      body: {
-        body?: definitions["NfePedidoCancelamento"];
-      };
+      body?: definitions["NfePedidoCancelamento"];
+
       path: {
         /** ID único da NFC-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -18135,9 +18131,8 @@ export interface operations {
    */
   EnviarEmailNfce: {
     parameters: {
-      body: {
-        body?: definitions["DfePedidoEnvioEmail"];
-      };
+      body?: definitions["DfePedidoEnvioEmail"];
+
       path: {
         /** ID único da NFC-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -18475,9 +18470,8 @@ export interface operations {
    */
   CancelarNfcom: {
     parameters: {
-      body: {
-        body?: definitions["NfcomPedidoCancelamento"];
-      };
+      body?: definitions["NfcomPedidoCancelamento"];
+
       path: {
         /** ID único da NFCom gerada pela Nuvem Fiscal. */
         id: string;
@@ -19020,9 +19014,8 @@ export interface operations {
    */
   CancelarNfe: {
     parameters: {
-      body: {
-        body?: definitions["NfePedidoCancelamento"];
-      };
+      body?: definitions["NfePedidoCancelamento"];
+
       path: {
         /** ID único da NF-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -19139,9 +19132,8 @@ export interface operations {
    */
   EnviarEmailNfe: {
     parameters: {
-      body: {
-        body?: definitions["DfePedidoEnvioEmail"];
-      };
+      body?: definitions["DfePedidoEnvioEmail"];
+
       path: {
         /** ID único da NF-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -19502,9 +19494,8 @@ export interface operations {
    */
   CancelarNfse: {
     parameters: {
-      body: {
-        body?: definitions["NfsePedidoCancelamento"];
-      };
+      body?: definitions["NfsePedidoCancelamento"];
+
       path: {
         /** ID único da NFS-e gerado pela Nuvem Fiscal. */
         id: string;
@@ -19566,9 +19557,7 @@ export interface operations {
    */
   SincronizarNfse: {
     parameters: {
-      body: {
-        body?: definitions["NfsePedidoSincronizacao"];
-      };
+      body?: definitions["NfsePedidoSincronizacao"];
       path: {
         /** ID único da NFS-e gerado pela Nuvem Fiscal. */
         id: string;
