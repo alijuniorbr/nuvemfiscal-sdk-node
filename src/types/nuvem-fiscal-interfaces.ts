@@ -1,5 +1,4 @@
-import { operations } from "./nuvem-fiscal-api.models";
-import { ResponseOf } from "./nuvem-fiscal-api.types";
+
 import * as Defs from "./nuvem-fiscal-interfaces-definitions";
 
 export type ConsultarCepResult = Defs.CepEndereco;

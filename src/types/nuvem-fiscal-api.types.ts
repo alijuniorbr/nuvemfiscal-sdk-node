@@ -1,8 +1,4 @@
 // src/types/nuvem-fiscal-api.core-types.ts
-import type {
-  operations as OperationsNS,
-  definitions,
-} from "./nuvem-fiscal-api.models";
 
 /** Conjunto de códigos 2xx considerados sucesso */
 export type SuccessHttpStatus =
@@ -18,47 +14,16 @@ export type SuccessHttpStatus =
   | 226;
 
 // Helpers para extrair partes das operations -------------------------------
-type ResponsesOf<T> = T extends { responses: infer R } ? R : never;
-type ParamsOf<T> = T extends { parameters: infer P } ? P : never;
+// (Mantidos apenas se forem úteis genericamente, mas sem dependência de models)
+// Como removemos models, operations não existe mais aqui.
 
-export type PathParamsOf<T> = ParamsOf<T> extends { path: infer A } ? A : never;
-export type QueryParamsOf<T> = ParamsOf<T> extends { query: infer A }
-  ? A
-  : never;
-export type BodyOf<T> = ParamsOf<T> extends { body: infer A } ? A : never;
+export type ResponseOf<T> = any; // Placeholder ou remover se não usado.
+// Na verdade, ResponseOf era usado em interfaces.ts, mas eu removi o uso lá.
+// Verifiquei que interfaces.ts não usa mais ResponseOf.
+// O client usa ResponseOf? Não, o client usa *Result.
+// Então podemos limpar quase tudo aqui.
 
-// Dado um responses e um status, obter o schema (ou void se não existir)
-type SchemaFromResponse<R, C> = C extends keyof R
-  ? R[C] extends { schema: infer S }
-    ? unknown extends S
-      ? void
-      : S // alguns geradores colocam unknown
-    : void
-  : void;
-
-// Unir os schemas de todos os 2xx (se houver 204 sem body -> vira void)
-export type ResponseOf<T> = ResponsesOf<T> extends infer R
-  ? Extract<keyof (R & {}), SuccessHttpStatus> extends infer C // intersecção segura
-    ? C extends number
-      ? SchemaFromResponse<R & {}, C>
-      : void
-    : void
-  : void;
-
-// Conveniência para referenciar Operations do seu OpenAPI
-export type Operations = OperationsNS;
-
-export type CepEndereco = definitions["CepEndereco"];
-export type CnpjListagem = definitions["CnpjListagem"];
-export type CnpjEmpresa = definitions["CnpjEmpresa"];
-export type ContaCotaListagem = definitions["ContaCotaListagem"];
-export type ContaCota = definitions["ContaCota"];
-export type EmpresaListagem = definitions["EmpresaListagem"];
-export type Empresa = definitions["Empresa"];
-export type EmpresaCertificado = definitions["EmpresaCertificado"];
-export type NfePedidoEmissao = definitions["NfePedidoEmissao"];
-export type Dfe = definitions["Dfe"];
-export type NfePedidoCancelamento = definitions["NfePedidoCancelamento"];
-export type DfeCancelamento = definitions["DfeCancelamento"];
-export type EmpresaPedidoCadastroCertificado =
-  definitions["EmpresaPedidoCadastroCertificado"];
+// Se houver algum lugar usando ResponseOf, vai quebrar.
+// O arquivo nuvem-fiscal-client.ts usa ResponseOf?
+// Eu refatorei para usar *Result.
+// Vamos verificar se sobrou algo.

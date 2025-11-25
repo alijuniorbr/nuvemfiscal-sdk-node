@@ -176,7 +176,7 @@ import {
   CriarCartaCorrecaoCteParams,
   CriarCartaCorrecaoCteBody,
   SincronizarCteParams,
-  SincronizarCteBody,
+
   ListarCteOsQuery,
   EmitirCteOsBody,
   ConsultarEventoCteOsParams,
@@ -189,7 +189,7 @@ import {
   CriarCartaCorrecaoCteOsParams,
   CriarCartaCorrecaoCteOsBody,
   SincronizarCteOsParams,
-  SincronizarCteOsBody,
+
   ListarDceQuery,
   EmitirDceBody,
   ConsultarStatusSefazDceQuery,
@@ -223,7 +223,7 @@ import {
   CadastrarCertificadoEmpresaBody,
   ExcluirCertificadoEmpresaParams,
   EnviarCertificadoEmpresaParams,
-  EnviarCertificadoEmpresaBody,
+
   ConsultarConfigCteParams,
   AlterarConfigCteParams,
   AlterarConfigCteBody,
@@ -237,7 +237,7 @@ import {
   AlterarConfigDistribuicaoNfeParams,
   AlterarConfigDistribuicaoNfeBody,
   EnviarLogotipoEmpresaParams,
-  EnviarLogotipoEmpresaBody,
+
   ExcluirLogotipoEmpresaParams,
   ConsultarConfigMdfeParams,
   AlterarConfigMdfeParams,
@@ -274,7 +274,7 @@ import {
   IncluirDfeMdfeParams,
   IncluirDfeMdfeBody,
   SincronizarMdfeParams,
-  SincronizarMdfeBody,
+
   ListarNfceQuery,
   EmitirNfceBody,
   ListarEventosNfceQuery,
@@ -292,7 +292,7 @@ import {
   EnviarEmailNfceParams,
   EnviarEmailNfceBody,
   SincronizarNfceParams,
-  SincronizarNfceBody,
+
   ListarNfcomQuery,
   EmitirNfcomBody,
   ConsultarStatusSefazNfcomQuery,
@@ -321,7 +321,7 @@ import {
   EnviarEmailNfeParams,
   EnviarEmailNfeBody,
   SincronizarNfeParams,
-  SincronizarNfeBody,
+
   ListarNfseQuery,
   EmitirNfseBody,
   ConsultarMetadadosParams,

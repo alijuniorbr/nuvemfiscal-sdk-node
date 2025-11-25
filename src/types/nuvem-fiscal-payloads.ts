@@ -1,279 +1,2125 @@
-import { PathParamsOf, QueryParamsOf, BodyOf } from "./nuvem-fiscal-api.types";
-import { operations } from "./nuvem-fiscal-api.models";
+import * as Defs from "./nuvem-fiscal-interfaces-definitions";
 
-export type ConsultarCepParams = PathParamsOf<operations["ConsultarCep"]>;
+export type ConsultarCepParams = {
 
-export type ListarCnpjQuery = QueryParamsOf<operations["ListarCnpj"]>;
-export type ConsultarCnpjParams = PathParamsOf<operations["ConsultarCnpj"]>;
+  /** CEP sem máscara. */
+  Cep: string;
+      };
 
-export type ConsultarCotaContaParams = PathParamsOf<operations["ConsultarCotaConta"]>;
+export type ListarCnpjQuery = {
 
-export type ListarCteQuery = QueryParamsOf<operations["ListarCte"]>;
-export type EmitirCteBody = BodyOf<operations["EmitirCte"]>;
-export type ConsultarEventoCteParams = PathParamsOf<operations["ConsultarEventoCte"]>;
-export type ConsultarStatusSefazCteQuery = QueryParamsOf<operations["ConsultarStatusSefazCte"]>;
-export type EmitirCteSimpBody = BodyOf<operations["EmitirCteSimp"]>;
-export type ConsultarCteParams = PathParamsOf<operations["ConsultarCte"]>;
-export type ConsultarCancelamentoCteParams = PathParamsOf<operations["ConsultarCancelamentoCte"]>;
-export type CancelarCteParams = PathParamsOf<operations["CancelarCte"]>;
-export type CancelarCteBody = BodyOf<operations["CancelarCte"]>;
-export type ConsultarCartaCorrecaoCteParams = PathParamsOf<operations["ConsultarCartaCorrecaoCte"]>;
-export type CriarCartaCorrecaoCteParams = PathParamsOf<operations["CriarCartaCorrecaoCte"]>;
-export type CriarCartaCorrecaoCteBody = BodyOf<operations["CriarCartaCorrecaoCte"]>;
-export type SincronizarCteParams = PathParamsOf<operations["SincronizarCte"]>;
-export type SincronizarCteBody = BodyOf<operations["SincronizarCte"]>;
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtro pelo código CNAE da atividade principal do estabelecimento.
+   * Utilize o valor sem máscara.
+   */
+  cnae_principal: string;
+  /**
+   * Filtro pelo código IBGE ou TOM (Tabela de Órgãos e Municípios) do município do estabelecimento.
+   * Utilize o valor sem máscara.
+   */
+  municipio: string;
+  /**
+   * Filtro pela natureza jurídica do estabelecimento
+   *  Utilize o valor de quatro dígitos sem máscara.
+   */
+  natureza_juridica: string;
+      };
 
-export type ListarCteOsQuery = QueryParamsOf<operations["ListarCteOs"]>;
-export type EmitirCteOsBody = BodyOf<operations["EmitirCteOs"]>;
-export type ConsultarEventoCteOsParams = PathParamsOf<operations["ConsultarEventoCteOs"]>;
-export type ConsultarStatusSefazCteOsQuery = QueryParamsOf<operations["ConsultarStatusSefazCteOs"]>;
-export type ConsultarCteOsParams = PathParamsOf<operations["ConsultarCteOs"]>;
-export type ConsultarCancelamentoCteOsParams = PathParamsOf<operations["ConsultarCancelamentoCteOs"]>;
-export type CancelarCteOsParams = PathParamsOf<operations["CancelarCteOs"]>;
-export type CancelarCteOsBody = BodyOf<operations["CancelarCteOs"]>;
-export type ConsultarCartaCorrecaoCteOsParams = PathParamsOf<operations["ConsultarCartaCorrecaoCteOs"]>;
-export type CriarCartaCorrecaoCteOsParams = PathParamsOf<operations["CriarCartaCorrecaoCteOs"]>;
-export type CriarCartaCorrecaoCteOsBody = BodyOf<operations["CriarCartaCorrecaoCteOs"]>;
-export type SincronizarCteOsParams = PathParamsOf<operations["SincronizarCteOs"]>;
-export type SincronizarCteOsBody = BodyOf<operations["SincronizarCteOs"]>;
+export type ConsultarCnpjParams = {
 
-export type ListarDceQuery = QueryParamsOf<operations["ListarDce"]>;
-export type EmitirDceBody = BodyOf<operations["EmitirDce"]>;
-export type ConsultarStatusSefazDceQuery = QueryParamsOf<operations["ConsultarStatusSefazDce"]>;
-export type ConsultarDceParams = PathParamsOf<operations["ConsultarDce"]>;
-export type ConsultarCancelamentoDceParams = PathParamsOf<operations["ConsultarCancelamentoDce"]>;
-export type CancelarDceParams = PathParamsOf<operations["CancelarDce"]>;
-export type CancelarDceBody = BodyOf<operations["CancelarDce"]>;
+  /** CNPJ sem máscara. */
+  Cnpj: string;
+      };
 
-export type DebugHttpRequestContentParams = PathParamsOf<operations["DebugHttpRequestContent"]>;
-export type DebugHttpResponseContentParams = PathParamsOf<operations["DebugHttpResponseContent"]>;
-export type DebugDfeParams = PathParamsOf<operations["DebugDfe"]>;
-export type DebugDfeOriginalPayloadParams = PathParamsOf<operations["DebugDfeOriginalPayload"]>;
+export type ConsultarCotaContaParams = {
 
-export type ListarDistribuicaoNfeQuery = QueryParamsOf<operations["ListarDistribuicaoNfe"]>;
-export type GerarDistribuicaoNfeBody = BodyOf<operations["GerarDistribuicaoNfe"]>;
-export type ListarDocumentoDistribuicaoNfeQuery = QueryParamsOf<operations["ListarDocumentoDistribuicaoNfe"]>;
-export type ConsultarDocumentoDistribuicaoNfeParams = PathParamsOf<operations["ConsultarDocumentoDistribuicaoNfe"]>;
-export type ListarManifestacaoNfeQuery = QueryParamsOf<operations["ListarManifestacaoNfe"]>;
-export type ManifestarNfeBody = BodyOf<operations["ManifestarNfe"]>;
-export type ConsultarManifestacaoNfeParams = PathParamsOf<operations["ConsultarManifestacaoNfe"]>;
-export type ListarNfeSemManifestacaoQuery = QueryParamsOf<operations["ListarNfeSemManifestacao"]>;
-export type ConsultarDistribuicaoNfeParams = PathParamsOf<operations["ConsultarDistribuicaoNfe"]>;
+  /** Nome da cota a ser consultada. */
+  nome: string;
+      };
 
-export type ListarEmailsQuery = QueryParamsOf<operations["ListarEmails"]>;
-export type ConsultarEmailParams = PathParamsOf<operations["ConsultarEmail"]>;
+export type ListarCteQuery = {
 
-export type ListarEmpresasQuery = QueryParamsOf<operations["ListarEmpresas"]>;
-export type CriarEmpresaBody = BodyOf<operations["CriarEmpresa"]>;
-export type ConsultarEmpresaParams = PathParamsOf<operations["ConsultarEmpresa"]>;
-export type AtualizarEmpresaParams = PathParamsOf<operations["AtualizarEmpresa"]>;
-export type AtualizarEmpresaBody = BodyOf<operations["AtualizarEmpresa"]>;
-export type ExcluirEmpresaParams = PathParamsOf<operations["ExcluirEmpresa"]>;
-export type ConsultarCertificadoEmpresaParams = PathParamsOf<operations["ConsultarCertificadoEmpresa"]>;
-export type CadastrarCertificadoEmpresaParams = PathParamsOf<operations["CadastrarCertificadoEmpresa"]>;
-export type CadastrarCertificadoEmpresaBody = BodyOf<operations["CadastrarCertificadoEmpresa"]>;
-export type ExcluirCertificadoEmpresaParams = PathParamsOf<operations["ExcluirCertificadoEmpresa"]>;
-export type EnviarCertificadoEmpresaParams = PathParamsOf<operations["EnviarCertificadoEmpresa"]>;
-export type EnviarCertificadoEmpresaBody = BodyOf<operations["EnviarCertificadoEmpresa"]>;
-export type ConsultarConfigCteParams = PathParamsOf<operations["ConsultarConfigCte"]>;
-export type AlterarConfigCteParams = PathParamsOf<operations["AlterarConfigCte"]>;
-export type AlterarConfigCteBody = BodyOf<operations["AlterarConfigCte"]>;
-export type ConsultarConfigCteOsParams = PathParamsOf<operations["ConsultarConfigCteOs"]>;
-export type AlterarConfigCteOsParams = PathParamsOf<operations["AlterarConfigCteOs"]>;
-export type AlterarConfigCteOsBody = BodyOf<operations["AlterarConfigCteOs"]>;
-export type ConsultarConfigDceParams = PathParamsOf<operations["ConsultarConfigDce"]>;
-export type AlterarConfigDceParams = PathParamsOf<operations["AlterarConfigDce"]>;
-export type AlterarConfigDceBody = BodyOf<operations["AlterarConfigDce"]>;
-export type ConsultarConfigDistribuicaoNfeParams = PathParamsOf<operations["ConsultarConfigDistribuicaoNfe"]>;
-export type AlterarConfigDistribuicaoNfeParams = PathParamsOf<operations["AlterarConfigDistribuicaoNfe"]>;
-export type AlterarConfigDistribuicaoNfeBody = BodyOf<operations["AlterarConfigDistribuicaoNfe"]>;
-export type EnviarLogotipoEmpresaParams = PathParamsOf<operations["EnviarLogotipoEmpresa"]>;
-export type EnviarLogotipoEmpresaBody = BodyOf<operations["EnviarLogotipoEmpresa"]>;
-export type ExcluirLogotipoEmpresaParams = PathParamsOf<operations["ExcluirLogotipoEmpresa"]>;
-export type ConsultarConfigMdfeParams = PathParamsOf<operations["ConsultarConfigMdfe"]>;
-export type AlterarConfigMdfeParams = PathParamsOf<operations["AlterarConfigMdfe"]>;
-export type AlterarConfigMdfeBody = BodyOf<operations["AlterarConfigMdfe"]>;
-export type ConsultarConfigNfceParams = PathParamsOf<operations["ConsultarConfigNfce"]>;
-export type AlterarConfigNfceParams = PathParamsOf<operations["AlterarConfigNfce"]>;
-export type AlterarConfigNfceBody = BodyOf<operations["AlterarConfigNfce"]>;
-export type ConsultarConfigNfcomParams = PathParamsOf<operations["ConsultarConfigNfcom"]>;
-export type AlterarConfigNfcomParams = PathParamsOf<operations["AlterarConfigNfcom"]>;
-export type AlterarConfigNfcomBody = BodyOf<operations["AlterarConfigNfcom"]>;
-export type ConsultarConfigNfeParams = PathParamsOf<operations["ConsultarConfigNfe"]>;
-export type AlterarConfigNfeParams = PathParamsOf<operations["AlterarConfigNfe"]>;
-export type AlterarConfigNfeBody = BodyOf<operations["AlterarConfigNfe"]>;
-export type ConsultarConfigNfseParams = PathParamsOf<operations["ConsultarConfigNfse"]>;
-export type AlterarConfigNfseParams = PathParamsOf<operations["AlterarConfigNfse"]>;
-export type AlterarConfigNfseBody = BodyOf<operations["AlterarConfigNfse"]>;
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
 
-export type ListarMdfeQuery = QueryParamsOf<operations["ListarMdfe"]>;
-export type EmitirMdfeBody = BodyOf<operations["EmitirMdfe"]>;
-export type ConsultarEventoMdfeParams = PathParamsOf<operations["ConsultarEventoMdfe"]>;
-export type ListarLotesMdfeQuery = QueryParamsOf<operations["ListarLotesMdfe"]>;
-export type EmitirLoteMdfeBody = BodyOf<operations["EmitirLoteMdfe"]>;
-export type ConsultarLoteMdfeParams = PathParamsOf<operations["ConsultarLoteMdfe"]>;
-export type ConsultarMdfeNaoEncerradosQuery = QueryParamsOf<operations["ConsultarMdfeNaoEncerrados"]>;
-export type ConsultarStatusSefazMdfeQuery = QueryParamsOf<operations["ConsultarStatusSefazMdfe"]>;
-export type ConsultarMdfeParams = PathParamsOf<operations["ConsultarMdfe"]>;
-export type ConsultarCancelamentoMdfeParams = PathParamsOf<operations["ConsultarCancelamentoMdfe"]>;
-export type CancelarMdfeParams = PathParamsOf<operations["CancelarMdfe"]>;
-export type CancelarMdfeBody = BodyOf<operations["CancelarMdfe"]>;
-export type ConsultarEncerramentoMdfeParams = PathParamsOf<operations["ConsultarEncerramentoMdfe"]>;
-export type EncerrarMdfeParams = PathParamsOf<operations["EncerrarMdfe"]>;
-export type EncerrarMdfeBody = BodyOf<operations["EncerrarMdfe"]>;
-export type IncluirCondutorMdfeParams = PathParamsOf<operations["IncluirCondutorMdfe"]>;
-export type IncluirCondutorMdfeBody = BodyOf<operations["IncluirCondutorMdfe"]>;
-export type IncluirDfeMdfeParams = PathParamsOf<operations["IncluirDfeMdfe"]>;
-export type IncluirDfeMdfeBody = BodyOf<operations["IncluirDfeMdfe"]>;
-export type SincronizarMdfeParams = PathParamsOf<operations["SincronizarMdfe"]>;
-export type SincronizarMdfeBody = BodyOf<operations["SincronizarMdfe"]>;
+export type EmitirCteBody = Defs.CtePedidoEmissao;
 
-export type ListarNfceQuery = QueryParamsOf<operations["ListarNfce"]>;
-export type EmitirNfceBody = BodyOf<operations["EmitirNfce"]>;
-export type ListarEventosNfceQuery = QueryParamsOf<operations["ListarEventosNfce"]>;
-export type ConsultarEventoNfceParams = PathParamsOf<operations["ConsultarEventoNfce"]>;
-export type InutilizarNumeracaoNfceBody = BodyOf<operations["InutilizarNumeracaoNfce"]>;
-export type ConsultarInutilizacaoNfceParams = PathParamsOf<operations["ConsultarInutilizacaoNfce"]>;
-export type ListarLotesNfceQuery = QueryParamsOf<operations["ListarLotesNfce"]>;
-export type EmitirLoteNfceBody = BodyOf<operations["EmitirLoteNfce"]>;
-export type ConsultarLoteNfceParams = PathParamsOf<operations["ConsultarLoteNfce"]>;
-export type ConsultarStatusSefazNfceQuery = QueryParamsOf<operations["ConsultarStatusSefazNfce"]>;
-export type ConsultarNfceParams = PathParamsOf<operations["ConsultarNfce"]>;
-export type ConsultarCancelamentoNfceParams = PathParamsOf<operations["ConsultarCancelamentoNfce"]>;
-export type CancelarNfceParams = PathParamsOf<operations["CancelarNfce"]>;
-export type CancelarNfceBody = BodyOf<operations["CancelarNfce"]>;
-export type EnviarEmailNfceParams = PathParamsOf<operations["EnviarEmailNfce"]>;
-export type EnviarEmailNfceBody = BodyOf<operations["EnviarEmailNfce"]>;
-export type SincronizarNfceParams = PathParamsOf<operations["SincronizarNfce"]>;
-export type SincronizarNfceBody = BodyOf<operations["SincronizarNfce"]>;
+export type ConsultarEventoCteParams = {
 
-export type ListarNfcomQuery = QueryParamsOf<operations["ListarNfcom"]>;
-export type EmitirNfcomBody = BodyOf<operations["EmitirNfcom"]>;
-export type ConsultarStatusSefazNfcomQuery = QueryParamsOf<operations["ConsultarStatusSefazNfcom"]>;
-export type ConsultarNfcomParams = PathParamsOf<operations["ConsultarNfcom"]>;
-export type ConsultarCancelamentoNfcomParams = PathParamsOf<operations["ConsultarCancelamentoNfcom"]>;
-export type CancelarNfcomParams = PathParamsOf<operations["CancelarNfcom"]>;
-export type CancelarNfcomBody = BodyOf<operations["CancelarNfcom"]>;
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
 
-export type ListarNfeQuery = QueryParamsOf<operations["ListarNfe"]>;
-export type EmitirNfeBody = BodyOf<operations["EmitirNfe"]>;
-export type ConsultarContribuinteNfeQuery = QueryParamsOf<operations["ConsultarContribuinteNfe"]>;
-export type ListarEventosNfeQuery = QueryParamsOf<operations["ListarEventosNfe"]>;
-export type ConsultarEventoNfeParams = PathParamsOf<operations["ConsultarEventoNfe"]>;
-export type InutilizarNumeracaoNfeBody = BodyOf<operations["InutilizarNumeracaoNfe"]>;
-export type ConsultarInutilizacaoNfeParams = PathParamsOf<operations["ConsultarInutilizacaoNfe"]>;
-export type ListarLotesNfeQuery = QueryParamsOf<operations["ListarLotesNfe"]>;
-export type EmitirLoteNfeBody = BodyOf<operations["EmitirLoteNfe"]>;
-export type ConsultarLoteNfeParams = PathParamsOf<operations["ConsultarLoteNfe"]>;
-export type ConsultarStatusSefazNfeQuery = QueryParamsOf<operations["ConsultarStatusSefazNfe"]>;
-export type ConsultarNfeParams = PathParamsOf<operations["ConsultarNfe"]>;
-export type ConsultarCancelamentoNfeParams = PathParamsOf<operations["ConsultarCancelamentoNfe"]>;
-export type CancelarNfeParams = PathParamsOf<operations["CancelarNfe"]>;
-export type CancelarNfeBody = BodyOf<operations["CancelarNfe"]>;
-export type ConsultarCartaCorrecaoNfeParams = PathParamsOf<operations["ConsultarCartaCorrecaoNfe"]>;
-export type CriarCartaCorrecaoNfeParams = PathParamsOf<operations["CriarCartaCorrecaoNfe"]>;
-export type CriarCartaCorrecaoNfeBody = BodyOf<operations["CriarCartaCorrecaoNfe"]>;
-export type EnviarEmailNfeParams = PathParamsOf<operations["EnviarEmailNfe"]>;
-export type EnviarEmailNfeBody = BodyOf<operations["EnviarEmailNfe"]>;
-export type SincronizarNfeParams = PathParamsOf<operations["SincronizarNfe"]>;
-export type SincronizarNfeBody = BodyOf<operations["SincronizarNfe"]>;
+export type BaixarPdfEventoCteParams = {
 
-export type ListarNfseQuery = QueryParamsOf<operations["ListarNfse"]>;
-export type EmitirNfseBody = BodyOf<operations["EmitirNfse"]>;
-export type ConsultarMetadadosParams = PathParamsOf<operations["ConsultarMetadados"]>;
-export type EmitirNfseDpsBody = BodyOf<operations["EmitirNfseDps"]>;
-export type EmitirLoteNfseDpsBody = BodyOf<operations["EmitirLoteNfseDps"]>;
-export type ListarLotesNfseQuery = QueryParamsOf<operations["ListarLotesNfse"]>;
-export type EmitirLoteNfseBody = BodyOf<operations["EmitirLoteNfse"]>;
-export type ConsultarLoteNfseParams = PathParamsOf<operations["ConsultarLoteNfse"]>;
-export type ConsultarNfseParams = PathParamsOf<operations["ConsultarNfse"]>;
-export type ConsultarCancelamentoNfseParams = PathParamsOf<operations["ConsultarCancelamentoNfse"]>;
-export type CancelarNfseParams = PathParamsOf<operations["CancelarNfse"]>;
-export type CancelarNfseBody = BodyOf<operations["CancelarNfse"]>;
-export type SincronizarNfseParams = PathParamsOf<operations["SincronizarNfse"]>;
-export type SincronizarNfseBody = BodyOf<operations["SincronizarNfse"]>;
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
 
-export type BaixarPdfEventoCteParams = PathParamsOf<operations["BaixarPdfEventoCte"]>;
-export type BaixarXmlEventoCteParams = PathParamsOf<operations["BaixarXmlEventoCte"]>;
-export type BaixarPdfCancelamentoCteParams = PathParamsOf<operations["BaixarPdfCancelamentoCte"]>;
-export type BaixarXmlCancelamentoCteParams = PathParamsOf<operations["BaixarXmlCancelamentoCte"]>;
-export type BaixarPdfCartaCorrecaoCteParams = PathParamsOf<operations["BaixarPdfCartaCorrecaoCte"]>;
-export type BaixarXmlCartaCorrecaoCteParams = PathParamsOf<operations["BaixarXmlCartaCorrecaoCte"]>;
-export type BaixarPdfCteParams = PathParamsOf<operations["BaixarPdfCte"]>;
-export type BaixarPdfCteQuery = QueryParamsOf<operations["BaixarPdfCte"]>;
-export type BaixarXmlCteParams = PathParamsOf<operations["BaixarXmlCte"]>;
-export type BaixarXmlCteConhecimentoParams = PathParamsOf<operations["BaixarXmlCteConhecimento"]>;
-export type BaixarXmlCteProtocoloParams = PathParamsOf<operations["BaixarXmlCteProtocolo"]>;
-export type BaixarPdfEventoCteOsParams = PathParamsOf<operations["BaixarPdfEventoCteOs"]>;
-export type BaixarXmlEventoCteOsParams = PathParamsOf<operations["BaixarXmlEventoCteOs"]>;
-export type BaixarPdfCancelamentoCteOsParams = PathParamsOf<operations["BaixarPdfCancelamentoCteOs"]>;
-export type BaixarXmlCancelamentoCteOsParams = PathParamsOf<operations["BaixarXmlCancelamentoCteOs"]>;
-export type BaixarPdfCartaCorrecaoCteOsParams = PathParamsOf<operations["BaixarPdfCartaCorrecaoCteOs"]>;
-export type BaixarXmlCartaCorrecaoCteOsParams = PathParamsOf<operations["BaixarXmlCartaCorrecaoCteOs"]>;
-export type BaixarPdfCteOsParams = PathParamsOf<operations["BaixarPdfCteOs"]>;
-export type BaixarPdfCteOsQuery = QueryParamsOf<operations["BaixarPdfCteOs"]>;
-export type BaixarXmlCteOsParams = PathParamsOf<operations["BaixarXmlCteOs"]>;
-export type BaixarXmlCteOsConhecimentoParams = PathParamsOf<operations["BaixarXmlCteOsConhecimento"]>;
-export type BaixarXmlCteOsProtocoloParams = PathParamsOf<operations["BaixarXmlCteOsProtocolo"]>;
-export type BaixarXmlCancelamentoDceParams = PathParamsOf<operations["BaixarXmlCancelamentoDce"]>;
-export type BaixarPdfDceParams = PathParamsOf<operations["BaixarPdfDce"]>;
-export type BaixarXmlDceParams = PathParamsOf<operations["BaixarXmlDce"]>;
-export type BaixarXmlDceDeclaracaoParams = PathParamsOf<operations["BaixarXmlDceDeclaracao"]>;
-export type BaixarXmlDceProtocoloParams = PathParamsOf<operations["BaixarXmlDceProtocolo"]>;
-export type BaixarPdfDocumentoDistribuicaoNfeParams = PathParamsOf<operations["BaixarPdfDocumentoDistribuicaoNfe"]>;
-export type BaixarXmlDocumentoDistribuicaoNfeParams = PathParamsOf<operations["BaixarXmlDocumentoDistribuicaoNfe"]>;
-export type BaixarLogotipoEmpresaParams = PathParamsOf<operations["BaixarLogotipoEmpresa"]>;
-export type BaixarPdfEventoMdfeParams = PathParamsOf<operations["BaixarPdfEventoMdfe"]>;
-export type BaixarXmlEventoMdfeParams = PathParamsOf<operations["BaixarXmlEventoMdfe"]>;
-export type BaixarPdfCancelamentoMdfeParams = PathParamsOf<operations["BaixarPdfCancelamentoMdfe"]>;
-export type BaixarXmlCancelamentoMdfeParams = PathParamsOf<operations["BaixarXmlCancelamentoMdfe"]>;
-export type BaixarPdfEncerramentoMdfeParams = PathParamsOf<operations["BaixarPdfEncerramentoMdfe"]>;
-export type BaixarXmlEncerramentoMdfeParams = PathParamsOf<operations["BaixarXmlEncerramentoMdfe"]>;
-export type BaixarPdfMdfeParams = PathParamsOf<operations["BaixarPdfMdfe"]>;
-export type BaixarPdfMdfeQuery = QueryParamsOf<operations["BaixarPdfMdfe"]>;
-export type BaixarXmlMdfeParams = PathParamsOf<operations["BaixarXmlMdfe"]>;
-export type BaixarXmlMdfeManifestoParams = PathParamsOf<operations["BaixarXmlMdfeManifesto"]>;
-export type BaixarXmlMdfeProtocoloParams = PathParamsOf<operations["BaixarXmlMdfeProtocolo"]>;
-export type BaixarPdfEventoNfceParams = PathParamsOf<operations["BaixarPdfEventoNfce"]>;
-export type BaixarXmlEventoNfceParams = PathParamsOf<operations["BaixarXmlEventoNfce"]>;
-export type BaixarPdfInutilizacaoNfceParams = PathParamsOf<operations["BaixarPdfInutilizacaoNfce"]>;
-export type BaixarXmlInutilizacaoNfceParams = PathParamsOf<operations["BaixarXmlInutilizacaoNfce"]>;
-export type BaixarPreviaPdfNfceBody = BodyOf<operations["BaixarPreviaPdfNfce"]>;
-export type BaixarPreviaPdfNfceQuery = QueryParamsOf<operations["BaixarPreviaPdfNfce"]>;
-export type BaixarPreviaXmlNfceBody = BodyOf<operations["BaixarPreviaXmlNfce"]>;
-export type BaixarPdfCancelamentoNfceParams = PathParamsOf<operations["BaixarPdfCancelamentoNfce"]>;
-export type BaixarXmlCancelamentoNfceParams = PathParamsOf<operations["BaixarXmlCancelamentoNfce"]>;
-export type BaixarEscPosNfceParams = PathParamsOf<operations["BaixarEscPosNfce"]>;
-export type BaixarEscPosNfceQuery = QueryParamsOf<operations["BaixarEscPosNfce"]>;
-export type BaixarPdfNfceParams = PathParamsOf<operations["BaixarPdfNfce"]>;
-export type BaixarPdfNfceQuery = QueryParamsOf<operations["BaixarPdfNfce"]>;
-export type BaixarXmlNfceParams = PathParamsOf<operations["BaixarXmlNfce"]>;
-export type BaixarXmlNfceNotaParams = PathParamsOf<operations["BaixarXmlNfceNota"]>;
-export type BaixarXmlNfceProtocoloParams = PathParamsOf<operations["BaixarXmlNfceProtocolo"]>;
-export type BaixarXmlCancelamentoNfcomParams = PathParamsOf<operations["BaixarXmlCancelamentoNfcom"]>;
-export type BaixarPdfNfcomParams = PathParamsOf<operations["BaixarPdfNfcom"]>;
-export type BaixarPdfNfcomQuery = QueryParamsOf<operations["BaixarPdfNfcom"]>;
-export type BaixarXmlNfcomParams = PathParamsOf<operations["BaixarXmlNfcom"]>;
-export type BaixarXmlNfcomNotaParams = PathParamsOf<operations["BaixarXmlNfcomNota"]>;
-export type BaixarXmlNfcomProtocoloParams = PathParamsOf<operations["BaixarXmlNfcomProtocolo"]>;
-export type BaixarPdfEventoNfeParams = PathParamsOf<operations["BaixarPdfEventoNfe"]>;
-export type BaixarXmlEventoNfeParams = PathParamsOf<operations["BaixarXmlEventoNfe"]>;
-export type BaixarPdfInutilizacaoNfeParams = PathParamsOf<operations["BaixarPdfInutilizacaoNfe"]>;
-export type BaixarXmlInutilizacaoNfeParams = PathParamsOf<operations["BaixarXmlInutilizacaoNfe"]>;
-export type BaixarPreviaPdfNfeBody = BodyOf<operations["BaixarPreviaPdfNfe"]>;
-export type BaixarPreviaPdfNfeQuery = QueryParamsOf<operations["BaixarPreviaPdfNfe"]>;
-export type BaixarPreviaXmlNfeBody = BodyOf<operations["BaixarPreviaXmlNfe"]>;
-export type BaixarPdfCancelamentoNfeParams = PathParamsOf<operations["BaixarPdfCancelamentoNfe"]>;
-export type BaixarXmlCancelamentoNfeParams = PathParamsOf<operations["BaixarXmlCancelamentoNfe"]>;
-export type BaixarPdfCartaCorrecaoNfeParams = PathParamsOf<operations["BaixarPdfCartaCorrecaoNfe"]>;
-export type BaixarXmlCartaCorrecaoNfeParams = PathParamsOf<operations["BaixarXmlCartaCorrecaoNfe"]>;
-export type BaixarPdfNfeParams = PathParamsOf<operations["BaixarPdfNfe"]>;
-export type BaixarPdfNfeQuery = QueryParamsOf<operations["BaixarPdfNfe"]>;
-export type BaixarXmlNfeParams = PathParamsOf<operations["BaixarXmlNfe"]>;
-export type BaixarXmlNfeNotaParams = PathParamsOf<operations["BaixarXmlNfeNota"]>;
-export type BaixarXmlNfeProtocoloParams = PathParamsOf<operations["BaixarXmlNfeProtocolo"]>;
-export type BaixarXmlCancelamentoNfseParams = PathParamsOf<operations["BaixarXmlCancelamentoNfse"]>;
-export type BaixarPdfNfseParams = PathParamsOf<operations["BaixarPdfNfse"]>;
-export type BaixarPdfNfseQuery = QueryParamsOf<operations["BaixarPdfNfse"]>;
-export type BaixarXmlNfseParams = PathParamsOf<operations["BaixarXmlNfse"]>;
-export type BaixarXmlDpsParams = PathParamsOf<operations["BaixarXmlDps"]>;
+export type BaixarXmlEventoCteParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarStatusSefazCteQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `MT`, `MS`, `MG`, `PR`, `RS`, `SP`, `SVRS`, `SVSP`, `AN`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type EmitirCteSimpBody = Defs.CteSimpPedidoEmissao;
+
+export type ConsultarCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarCteBody = Defs.CtePedidoCancelamento;
+
+export type BaixarPdfCancelamentoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCartaCorrecaoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoCteBody = Defs.CtePedidoCartaCorrecao;
+
+export type BaixarPdfCartaCorrecaoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCartaCorrecaoCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfCteQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+      };
+
+export type SincronizarCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteParams = {
+
+  /** ID único do CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteConhecimentoParams = {
+
+  /** ID único da CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteProtocoloParams = {
+
+  /** ID único da CT-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarCteOsQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirCteOsBody = Defs.CteOsPedidoEmissao;
+
+export type ConsultarEventoCteOsParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfEventoCteOsParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlEventoCteOsParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarStatusSefazCteOsQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `MT`, `MS`, `MG`, `PR`, `RS`, `SP`, `SVRS`, `SVSP`, `AN`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarCteOsBody = Defs.CteOsPedidoCancelamento;
+
+export type BaixarPdfCancelamentoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCartaCorrecaoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoCteOsBody = Defs.CteOsPedidoCartaCorrecao;
+
+export type BaixarPdfCartaCorrecaoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCartaCorrecaoCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfCteOsQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+      };
+
+export type SincronizarCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteOsParams = {
+
+  /** ID único do CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteOsConhecimentoParams = {
+
+  /** ID único da CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCteOsProtocoloParams = {
+
+  /** ID único da CT-e OS gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarDceQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirDceBody = Defs.DcePedidoEmissao;
+
+export type ConsultarStatusSefazDceQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `AN`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarDceParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoDceParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarDceParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarDceBody = Defs.DcePedidoCancelamento;
+
+export type BaixarXmlCancelamentoDceParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfDceParams = {
+
+  /** ID único da DC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlDceParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlDceDeclaracaoParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlDceProtocoloParams = {
+
+  /** ID único da DC-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type DebugHttpRequestContentParams = {
+
+  /** ID da requisição HTTP. */
+  id: string;
+      };
+
+export type DebugHttpResponseContentParams = {
+
+  /** ID da requisição HTTP. */
+  id: string;
+      };
+
+export type DebugDfeParams = {
+
+  /** ID único do documento fiscal gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type DebugDfeOriginalPayloadParams = {
+
+  /** ID do documento fiscal gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarDistribuicaoNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ da pessoa ou empresa interessada.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type GerarDistribuicaoNfeBody = Defs.DistribuicaoNfePedido;
+
+export type ListarDocumentoDistribuicaoNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ da pessoa ou empresa interessada.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Filtrar por documentos a partir do NSU informado. */
+  dist_nsu?: number;
+  /**
+   * Filtrar pelo tipo do documento de interesse da pessoa ou empresa.
+   *
+   * Valores aceitos: `nota`, `evento`
+   */
+  tipo_documento?: string;
+  /**
+   * Filtrar por documentos que foram distribuídos em sua forma resumida ou completa.
+   *
+   * Valores aceitos: `resumida`, `completa`
+   */
+  forma_distribuicao?: string;
+  /** Filtrar pela chave de acesso da NF-e. */
+  chave_acesso?: string;
+      };
+
+export type ConsultarDocumentoDistribuicaoNfeParams = {
+
+  /** ID único do documento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfDocumentoDistribuicaoNfeParams = {
+
+  /** ID único do documento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlDocumentoDistribuicaoNfeParams = {
+
+  /** ID único do documento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarManifestacaoNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do autor do evento.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type ManifestarNfeBody = Defs.DistribuicaoNfePedidoManifestacao;
+
+export type ConsultarManifestacaoNfeParams = {
+
+  /** ID único da manifestação gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarNfeSemManifestacaoQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ da pessoa ou empresa interessada.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /**
+   * Indica se serão consideradas apenas as manifestações conclusivas.
+   *
+   * Valores:
+   * * `false`: serão retornadas notas que não possuírem qualquer tipo de
+   *   manifestação.
+   *
+   * * `true`: apenas as notas que não possuírem manifestação conclusiva
+   *   serão retornadas. Ou seja, notas que tenham sido manifestadas apenas
+   *   com Ciência da Operação (210210) continuarão sendo retornadas por
+   *   esse endpoint até que recebam uma manifestação conclusiva.
+   */
+  conclusiva?: boolean;
+      };
+
+export type ConsultarDistribuicaoNfeParams = {
+
+  /** ID único da distribuição de NF-e gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarEmailsQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtra pelo CPF ou CNPJ da empresa.
+   *
+   * *Utilize o valor sem máscara*.
+   */
+  cpf_cnpj: string;
+  /** Filtra apenas emails com problemas de entrega. */
+  undelivered?: boolean;
+  /** Filtra pelo endereço de e-mail do destinatário para qual o email foi enviado. */
+  email?: string;
+      };
+
+export type ConsultarEmailParams = {
+
+  /**
+   * ID único do e-mail.
+   *
+   * Esse parâmetro é obtido após o envio do email por qualquer endpoint da
+   * API da Nuvem Fiscal que realize disparos de email.
+   *
+   * Exemplos:
+   * * <a href="#tag/Nfe/operation/EnviarEmailNfe">Envio de XML e PDF de NF-e</a>.
+   * * <a href="#tag/Nfce/operation/EnviarEmailNfce">Envio de XML e PDF de NFC-e</a>.
+   */
+  id: string;
+      };
+
+export type ListarEmpresasQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ da empresa.
+   *
+   * *Utilize o valor sem máscara*.
+   */
+  cpf_cnpj?: string;
+      };
+
+export type CriarEmpresaBody = Defs.Empresa;
+
+export type ConsultarEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AtualizarEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AtualizarEmpresaBody = Defs.Empresa;
+
+export type ExcluirEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type ConsultarCertificadoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type CadastrarCertificadoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type CadastrarCertificadoEmpresaBody = Defs.EmpresaPedidoCadastroCertificado;
+
+export type ExcluirCertificadoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type EnviarCertificadoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type ConsultarConfigCteParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigCteParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigCteBody = Defs.EmpresaConfigCte;
+
+export type ConsultarConfigCteOsParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigCteOsParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigCteOsBody = Defs.EmpresaConfigCteOs;
+
+export type ConsultarConfigDceParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigDceParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigDceBody = Defs.EmpresaConfigDce;
+
+export type ConsultarConfigDistribuicaoNfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigDistribuicaoNfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigDistribuicaoNfeBody = Defs.EmpresaConfigDistribuicaoNfe;
+
+export type BaixarLogotipoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type EnviarLogotipoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type ExcluirLogotipoEmpresaParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type ConsultarConfigMdfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigMdfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigMdfeBody = Defs.EmpresaConfigMdfe;
+
+export type ConsultarConfigNfceParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfceParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfceBody = Defs.EmpresaConfigNfce;
+
+export type ConsultarConfigNfcomParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfcomParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfcomBody = Defs.EmpresaConfigNfcom;
+
+export type ConsultarConfigNfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfeParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfeBody = Defs.EmpresaConfigNfe;
+
+export type ConsultarConfigNfseParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfseParams = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type AlterarConfigNfseBody = Defs.EmpresaConfigNfse;
+
+export type ListarMdfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirMdfeBody = Defs.MdfePedidoEmissao;
+
+export type ConsultarEventoMdfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfEventoMdfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlEventoMdfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarLotesMdfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type EmitirLoteMdfeBody = Defs.MdfePedidoEmissaoLote;
+
+export type ConsultarLoteMdfeParams = {
+
+  /** ID único do lote gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarMdfeNaoEncerradosQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+      };
+
+export type ConsultarStatusSefazMdfeQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `SVRS`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarMdfeBody = Defs.MdfePedidoCancelamento;
+
+export type BaixarPdfCancelamentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarEncerramentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EncerrarMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EncerrarMdfeBody = Defs.MdfePedidoEncerramento;
+
+export type BaixarPdfEncerramentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlEncerramentoMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type IncluirCondutorMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type IncluirCondutorMdfeBody = Defs.MdfePedidoInclusaoCondutor;
+
+export type IncluirDfeMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type IncluirDfeMdfeBody = Defs.MdfePedidoInclusaoDfe;
+
+export type BaixarPdfMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfMdfeQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+      };
+
+export type SincronizarMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlMdfeParams = {
+
+  /** ID único do MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlMdfeManifestoParams = {
+
+  /** ID único da MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlMdfeProtocoloParams = {
+
+  /** ID único da MDF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarNfceQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirNfceBody = Defs.NfePedidoEmissao;
+
+export type ListarEventosNfceQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /** ID único gerado pela Nuvem Fiscal para o documento fiscal. */
+  dfe_id: string;
+      };
+
+export type ConsultarEventoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfEventoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlEventoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type InutilizarNumeracaoNfceBody = Defs.DfePedidoInutilizacao;
+
+export type ConsultarInutilizacaoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfInutilizacaoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlInutilizacaoNfceParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarLotesNfceQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type EmitirLoteNfceBody = Defs.NfePedidoEmissaoLote;
+
+export type ConsultarLoteNfceParams = {
+
+  /** ID único do lote gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPreviaPdfNfceQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+  /** Exibe o nome fantasia do emitente, desde que esteja presente no XML da nota. */
+  nome_fantasia?: boolean;
+  /**
+   * Imprime mensagem no rodapé do documento.
+   *
+   * O caractere `|` (pipe) poderá ser utilizado para definir a quantidade e o alinhamento das mensagens.
+   *
+   * **Exemplos de Uso:**
+   * * `"esquerda"`
+   * * `"esquerda|centro"`
+   * * `"esquerda|centro|direita"`
+   * * `"|centro"`, `"|centro|"`
+   * * `"|centro|direita"`
+   * * `"||direita"`
+   * * `"esquerda||direita"`
+   */
+  mensagem_rodape?: string;
+  /** Poderá ser impresso apenas o DANFE NFC-e resumido ou ecológico, sem o detalhamento dos itens da venda, desde que a Unidade Federada permita esta opção em sua legislação e o consumidor assim o solicite. */
+  resumido?: boolean;
+  /**
+   * Imprime o QRCode na lateral do DANFE NFC-e.
+   *
+   * *Disponível apenas para DANFE com 80 milímetros de largura*.
+   */
+  qrcode_lateral?: boolean;
+  /** Largura do DANFE NFC-e (em milímetros). */
+  largura?: number;
+  /**
+   * Define as margens do DANFE NFC-e (em milímetros).
+   *
+   * Essa propriedade pode ser especificada usando um, dois, três ou quatro valores (separados por vírgulas). Cada valor deve ser um número entre `0` e `9`.
+   * * Quando **um** valor é especificado, a mesma margem é aplicada para **todos os quatro lados**.
+   * * Quando **dois** valores são especificados, a primeira margem é aplicada aos **lados esquerdo e direito**, e a segunda aos **lados superior e inferior**.
+   * * Quando **três** valores são especificados, a primeira margem é aplicada ao **lado esquerdo**, a segunda aos **lados superior e inferior**, e a terceira ao **lado direito**.
+   * * Quando **quatro** valores são especificados, as margens são aplicadas aos lados **esquerdo**, **superior**, **direito** e **inferior**, nesta ordem (sentido horário).
+   *
+   * **Exemplos de uso**:
+   * * `margem=1`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 1mm
+   *   - Margem direita: 1mm
+   *   - Margem inferior: 1mm
+   * * `margem=1,2`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 1mm
+   *   - Margem inferior: 2mm
+   * * `margem=1,2,3`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 3mm
+   *   - Margem inferior: 2mm
+   * * `margem=1,2,3,4`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 3mm
+   *   - Margem inferior: 4mm
+   */
+  margem?: string;
+      };
+
+export type BaixarPreviaPdfNfceBody = Defs.NfePedidoEmissao;
+
+export type BaixarPreviaXmlNfceBody = Defs.NfePedidoEmissao;
+
+export type ConsultarStatusSefazNfceQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `AM`, `BA`, `CE`, `GO`, `MG`, `MS`, `MT`, `PE`, `PR`, `RS`, `SP`, `SVRS`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfceBody = Defs.NfePedidoCancelamento;
+
+export type BaixarPdfCancelamentoNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EnviarEmailNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EnviarEmailNfceBody = Defs.DfePedidoEnvioEmail;
+
+export type BaixarEscPosNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarEscPosNfceQuery = {
+
+  /**
+   * Modelo da impressora:
+   * * `0` - Texto
+   * * `1` - Epson
+   * * `2` - Bematech
+   * * `3` - Daruma
+   * * `4` - Vox
+   * * `5` - Diebold
+   * * `6` - Epson P2
+   * * `7` - CustomPos
+   * * `8` - Star
+   * * `9` - Zjiang
+   * * `10` - GPrinter
+   * * `11` - Datecs
+   * * `12` - Sunmi
+   * * `13` - Externo
+   */
+  modelo?: number;
+  /**
+   * Define o máximo de caracteres, em uma linha, usando a fonte normal.
+   *
+   * Ex: 40, 42, 48, 58, 80.
+   */
+  colunas?: number;
+  /**
+   * Imprime o QRCode na lateral do DANFCe.
+   *
+   * OBS: não suportado por alguns modelos de impressora.
+   */
+  qrcode_lateral?: boolean;
+      };
+
+export type BaixarPdfNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfNfceQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+  /** Exibe o nome fantasia do emitente, desde que esteja presente no XML da nota. */
+  nome_fantasia?: boolean;
+  /**
+   * Imprime mensagem no rodapé do documento.
+   *
+   * O caractere `|` (pipe) poderá ser utilizado para definir a quantidade e o alinhamento das mensagens.
+   *
+   * **Exemplos de Uso:**
+   * * `"esquerda"`
+   * * `"esquerda|centro"`
+   * * `"esquerda|centro|direita"`
+   * * `"|centro"`, `"|centro|"`
+   * * `"|centro|direita"`
+   * * `"||direita"`
+   * * `"esquerda||direita"`
+   */
+  mensagem_rodape?: string;
+  /** Poderá ser impresso apenas o DANFE NFC-e resumido ou ecológico, sem o detalhamento dos itens da venda, desde que a Unidade Federada permita esta opção em sua legislação e o consumidor assim o solicite. */
+  resumido?: boolean;
+  /**
+   * Imprime o QRCode na lateral do DANFE NFC-e.
+   *
+   * *Disponível apenas para DANFE com 80 milímetros de largura*.
+   */
+  qrcode_lateral?: boolean;
+  /** Largura do DANFE NFC-e (em milímetros). */
+  largura?: number;
+  /**
+   * Define as margens do DANFE NFC-e (em milímetros).
+   *
+   * Essa propriedade pode ser especificada usando um, dois, três ou quatro valores (separados por vírgulas). Cada valor deve ser um número entre `0` e `9`.
+   * * Quando **um** valor é especificado, a mesma margem é aplicada para **todos os quatro lados**.
+   * * Quando **dois** valores são especificados, a primeira margem é aplicada aos **lados esquerdo e direito**, e a segunda aos **lados superior e inferior**.
+   * * Quando **três** valores são especificados, a primeira margem é aplicada ao **lado esquerdo**, a segunda aos **lados superior e inferior**, e a terceira ao **lado direito**.
+   * * Quando **quatro** valores são especificados, as margens são aplicadas aos lados **esquerdo**, **superior**, **direito** e **inferior**, nesta ordem (sentido horário).
+   *
+   * **Exemplos de uso**:
+   * * `margem=1`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 1mm
+   *   - Margem direita: 1mm
+   *   - Margem inferior: 1mm
+   * * `margem=1,2`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 1mm
+   *   - Margem inferior: 2mm
+   * * `margem=1,2,3`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 3mm
+   *   - Margem inferior: 2mm
+   * * `margem=1,2,3,4`
+   *   - Margem esquerda: 1mm
+   *   - Margem superior: 2mm
+   *   - Margem direita: 3mm
+   *   - Margem inferior: 4mm
+   */
+  margem?: string;
+      };
+
+export type SincronizarNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfceParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfceNotaParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfceProtocoloParams = {
+
+  /** ID único da NFC-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarNfcomQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirNfcomBody = Defs.NfcomPedidoEmissao;
+
+export type ConsultarStatusSefazNfcomQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `SVRS`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarNfcomParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoNfcomParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfcomParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfcomBody = Defs.NfcomPedidoCancelamento;
+
+export type BaixarXmlCancelamentoNfcomParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfNfcomParams = {
+
+  /** ID único da NFCom gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfNfcomQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+      };
+
+export type BaixarXmlNfcomParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfcomNotaParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfcomProtocoloParams = {
+
+  /** ID único da NFCom gerada pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirNfeBody = Defs.NfePedidoEmissao;
+
+export type ConsultarContribuinteNfeQuery = {
+
+  /**
+   * CPF ou CNPJ da empresa.
+   *
+   * *Utilize o valor sem máscara*.
+   */
+  cpf_cnpj: string;
+  /**
+   * Sigla da UF consultada.
+   *
+   *  Utilize `SU` para SUFRAMA.
+   *
+   * *Caso não seja informada, será utilizada a UF da empresa.*
+   */
+  uf?: string;
+  /**
+   * Argumento de pesquisa.
+   *
+   * Valores válidos:
+   * * `CNPJ`
+   * * `CPF`
+   * * `IE`
+   */
+  argumento: string;
+  /** Documento a ser consultado (CNPJ, CPF ou Inscrição Estadual). */
+  documento: string;
+      };
+
+export type ListarEventosNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /** ID único gerado pela Nuvem Fiscal para o documento fiscal. */
+  dfe_id: string;
+      };
+
+export type ConsultarEventoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfEventoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlEventoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type InutilizarNumeracaoNfeBody = Defs.DfePedidoInutilizacao;
+
+export type ConsultarInutilizacaoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfInutilizacaoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlInutilizacaoNfeParams = {
+
+  /** ID único do evento gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarLotesNfeQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type EmitirLoteNfeBody = Defs.NfePedidoEmissaoLote;
+
+export type ConsultarLoteNfeParams = {
+
+  /** ID único do lote gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPreviaPdfNfeQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+  /** Exibe o nome fantasia do emitente, desde que esteja presente no XML da nota. */
+  nome_fantasia?: boolean;
+  /**
+   * Formato de impressão do DANFE.
+   *
+   * Valores disponíveis:
+   * - `padrao`: será utilizado o formato definido no XML da NF-e (tag "tpImp");
+   * - `retrato`: tamanho A4 em modo retrato;
+   * - `paisagem`: tamanho A4 em modo paisagem;
+   * - `simplificado`: formato simplificado utilizado nas operações realizadas fora do estabelecimento (Anexo II do MOC, item 3.11);
+   * - `etiqueta`: formato simplificado utilizado nas operações em comércio eletrônico (Anexo II do MOC, item 3.12 e NT 2020.004).
+   */
+  formato?: string;
+  /**
+   * Imprime mensagem no rodapé do documento.
+   *
+   * O caractere `|` (pipe) poderá ser utilizado para definir a quantidade e o alinhamento das mensagens.
+   *
+   * **Exemplos de Uso:**
+   * * `"esquerda"`
+   * * `"esquerda|centro"`
+   * * `"esquerda|centro|direita"`
+   * * `"|centro"`, `"|centro|"`
+   * * `"|centro|direita"`
+   * * `"||direita"`
+   * * `"esquerda||direita"`
+   */
+  mensagem_rodape?: string;
+  /** Imprime o documento com o bloco de canhoto. */
+  canhoto?: boolean;
+      };
+
+export type BaixarPreviaPdfNfeBody = Defs.NfePedidoEmissao;
+
+export type BaixarPreviaXmlNfeBody = Defs.NfePedidoEmissao;
+
+export type ConsultarStatusSefazNfeQuery = {
+
+  /**
+   * CPF/CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /**
+   * Ambiente Autorizador.
+   *
+   * Autorizadores disponíveis: `AM`, `BA`, `GO`, `MG`, `MS`, `MT`, `PE`, `PR`, `RS`, `SP`, `SVAN`, `SVRS`, `SVCAN`, `SVCRS`, `AN`.
+   *
+   * *Caso não seja informado, será utilizado o ambiente autorizador da UF do emitente.*
+   */
+  autorizador?: string;
+      };
+
+export type ConsultarNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfeBody = Defs.NfePedidoCancelamento;
+
+export type BaixarPdfCancelamentoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCartaCorrecaoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CriarCartaCorrecaoNfeBody = Defs.NfePedidoCartaCorrecao;
+
+export type BaixarPdfCartaCorrecaoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCartaCorrecaoNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EnviarEmailNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type EnviarEmailNfeBody = Defs.DfePedidoEnvioEmail;
+
+export type BaixarPdfNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfNfeQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+  /** Exibe o nome fantasia do emitente, desde que esteja presente no XML da nota. */
+  nome_fantasia?: boolean;
+  /**
+   * Formato de impressão do DANFE.
+   *
+   * Valores disponíveis:
+   * - `padrao`: será utilizado o formato definido no XML da NF-e (tag "tpImp");
+   * - `retrato`: tamanho A4 em modo retrato;
+   * - `paisagem`: tamanho A4 em modo paisagem;
+   * - `simplificado`: formato simplificado utilizado nas operações realizadas fora do estabelecimento (Anexo II do MOC, item 3.11);
+   * - `etiqueta`: formato simplificado utilizado nas operações em comércio eletrônico (Anexo II do MOC, item 3.12 e NT 2020.004).
+   */
+  formato?: string;
+  /**
+   * Imprime mensagem no rodapé do documento.
+   *
+   * O caractere `|` (pipe) poderá ser utilizado para definir a quantidade e o alinhamento das mensagens.
+   *
+   * **Exemplos de Uso:**
+   * * `"esquerda"`
+   * * `"esquerda|centro"`
+   * * `"esquerda|centro|direita"`
+   * * `"|centro"`, `"|centro|"`
+   * * `"|centro|direita"`
+   * * `"||direita"`
+   * * `"esquerda||direita"`
+   */
+  mensagem_rodape?: string;
+  /** Imprime o documento com o bloco de canhoto. */
+  canhoto?: boolean;
+      };
+
+export type SincronizarNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfeParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfeNotaParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlNfeProtocoloParams = {
+
+  /** ID único da NF-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ListarNfseQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   *
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  /** Seu identificador único para o documento. */
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+  /** Chave de acesso do DF-e. */
+  chave?: string;
+  /** Série do DF-e. */
+  serie?: string;
+      };
+
+export type EmitirNfseBody = Defs.NfsePedidoEmissao;
+
+export type ConsultarMetadadosParams = {
+
+  /** Código IBGE do município. */
+  codigo_ibge: string;
+      };
+
+export type EmitirNfseDpsBody = Defs.NfseDpsPedidoEmissao;
+
+export type EmitirLoteNfseDpsBody = Defs.NfseLoteDpsPedidoEmissao;
+
+export type ListarLotesNfseQuery = {
+
+  /** Limite no número de objetos a serem retornados pela API, entre 1 e 100. */
+  $top?: number;
+  /** Quantidade de objetos que serão ignorados antes da lista começar a ser retornada. */
+  $skip?: number;
+  /** Inclui no JSON de resposta, na propriedade `@count`, o número total de registros que o filtro retornaria, independente dos filtros de paginação. */
+  $inlinecount?: boolean;
+  /**
+   * Filtrar pelo CPF ou CNPJ do emitente.
+   * Utilize o valor sem máscara.
+   */
+  cpf_cnpj: string;
+  referencia?: string;
+  /**
+   * Identificação do Ambiente.
+   *
+   * Valores aceitos: homologacao, producao
+   */
+  ambiente: string;
+      };
+
+export type EmitirLoteNfseBody = Defs.RpsPedidoEmissaoLote;
+
+export type ConsultarLoteNfseParams = {
+
+  /** ID único do lote gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlCancelamentoNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  Id: string;
+      };
+
+export type ConsultarNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type ConsultarCancelamentoNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type CancelarNfseBody = Defs.NfsePedidoCancelamento;
+
+export type BaixarPdfNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarPdfNfseQuery = {
+
+  /** Imprime o documento com logotipo, desde que esteja cadastrado na empresa. */
+  logotipo?: boolean;
+  /**
+   * Imprime mensagem no rodapé do documento.
+   *
+   * O caractere `|` (pipe) poderá ser utilizado para definir a quantidade e o alinhamento das mensagens.
+   *
+   * **Exemplos de Uso:**
+   * * `"esquerda"`
+   * * `"esquerda|centro"`
+   * * `"esquerda|centro|direita"`
+   * * `"|centro"`, `"|centro|"`
+   * * `"|centro|direita"`
+   * * `"||direita"`
+   * * `"esquerda||direita"`
+   *
+   * Default: `""`
+   */
+  mensagem_rodape?: string;
+      };
+
+export type SincronizarNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type SincronizarNfseBody = Defs.NfsePedidoSincronizacao;
+
+export type BaixarXmlNfseParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
+export type BaixarXmlDpsParams = {
+
+  /** ID único da NFS-e gerado pela Nuvem Fiscal. */
+  id: string;
+      };
+
