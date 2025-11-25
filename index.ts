@@ -4,12 +4,18 @@
 export * from "./src/types/nuvem-fiscal-api.types";
 export * from "./src/types/nuvem-fiscal-api.httpclient";
 
+export * from "./src/types/nuvem-fiscal-interfaces";
+export * from "./src/types/nuvem-fiscal-interfaces-definitions";
+export * from "./src/types/nuvem-fiscal-payloads";
+
 // Cliente principal
-export * from "./src/api/nuvem-fiscal-client";
+export * from "./src/api/nuvem-fiscal-api";
 
 // Adapters HTTP
 export * from "./src/adapters/fetch-http-client";
 export * from "./src/adapters/axios-http-client";
+
+
 
 // Tokens (Node + Browser)
 // - Node (objeto completo do token)

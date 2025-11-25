@@ -21,7 +21,7 @@
 
 import { getClientCredentialsToken } from "../src/api/nuvem-fiscal-token-acquire";
 import { FetchHttpClient } from "../src/adapters/fetch-http-client";
-import { NuvemFiscalClient } from "../src/api/nuvem-fiscal-client";
+import { NuvemFiscalApi } from "../src/api/nuvem-fiscal-api";
 
 function requiredEnv(name: string): string {
   const v = process.env[name];
@@ -78,7 +78,7 @@ async function main() {
   });
 
   // 3) Criar client tipado
-  const api = new NuvemFiscalClient(http, API_BASE);
+  const api = new NuvemFiscalApi(http, API_BASE);
 
   // 4) Chamada de exemplo 1: CEP
   try {

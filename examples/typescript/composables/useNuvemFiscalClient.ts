@@ -1,7 +1,7 @@
 import {
   AxiosHttpClient,
   getNuvemFiscalTokenForBrowser,
-  NuvemFiscalClient,
+  NuvemFiscalApi,
 } from "@alijunior/nuvemfiscal-sdk-node";
 
 // === Configuração da NuvemFiscal ===
@@ -13,9 +13,9 @@ const baseUrl = "https://api.nuvemfiscal.com.br";
 
 // === Cache de token e cliente ===
 let tokenPromise: Promise<string> | null = null;
-let apiClient: NuvemFiscalClient | null = null;
+let apiClient: NuvemFiscalApi | null = null;
 
-export const getNuvemFiscalClient = async (): Promise<NuvemFiscalClient> => {
+export const getNuvemFiscalClient = async (): Promise<NuvemFiscalApi> => {
   if (apiClient) return apiClient;
 
   if (!tokenPromise) {
@@ -35,7 +35,7 @@ export const getNuvemFiscalClient = async (): Promise<NuvemFiscalClient> => {
     accessToken: token,
     baseURL: baseUrl,
   });
-  apiClient = new NuvemFiscalClient(httpClient, baseUrl);
+  apiClient = new NuvemFiscalApi(httpClient, baseUrl);
 
   return apiClient;
 };

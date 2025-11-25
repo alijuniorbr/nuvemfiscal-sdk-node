@@ -422,7 +422,7 @@ import {
   BaixarXmlDpsParams,
 } from "../types/nuvem-fiscal-payloads";
 
-export class NuvemFiscalClient {
+export class NuvemFiscalApi {
   constructor(private http: NuvemFiscalHttpClient, private baseUrl: string) {}
 
   /** Auto-generated for /cep/{Cep} [GET] -> operations["ConsultarCep"] */
