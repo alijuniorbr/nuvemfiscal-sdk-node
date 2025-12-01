@@ -10,12 +10,13 @@ export * from "./src/types/nuvem-fiscal-payloads";
 
 // Cliente principal
 export * from "./src/api/nuvem-fiscal-api";
+export * from "./src/api/nuvem-fiscal-token-acquire";
+export * from "./src/api/nuvem-fiscal-token-string";
+export * from "./src/api/nuvem-fiscal-token-browser";
 
 // Adapters HTTP
 export * from "./src/adapters/fetch-http-client";
 export * from "./src/adapters/axios-http-client";
-
-
 
 // Tokens (Node + Browser)
 // - Node (objeto completo do token)

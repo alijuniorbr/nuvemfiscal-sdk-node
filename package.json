@@ -1,6 +1,6 @@
 {
   "name": "@alijunior/nuvemfiscal-sdk-node",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "SDK em Typescript para comunicação com a api Nuvem Fiscal",
   "keywords": [
     "nuvemfiscal",
