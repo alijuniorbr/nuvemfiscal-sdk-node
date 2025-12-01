@@ -1,6 +1,6 @@
 {
   "name": "@alijunior/nuvemfiscal-sdk-node",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "SDK em Typescript para comunicação com a api Nuvem Fiscal",
   "keywords": [
     "nuvemfiscal",
@@ -26,14 +26,14 @@
     "url": "https://github.com/alijuniorbr"
   },
   "type": "commonjs",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.js"
     }
   },
   "files": [

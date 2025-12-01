@@ -11,5 +11,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "index.ts", "lixo/chatgpt/erros.ts"]
+  "include": ["src", "index.ts"]
 }
